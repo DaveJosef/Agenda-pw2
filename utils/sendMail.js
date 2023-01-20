@@ -10,7 +10,7 @@ exports.sendMail = async(mailTo, token) => {
         html: `
             <div>
                 <h3>Click the following link to verify your account.</h3>
-                <p><a target="_blank" href="http://locahost:9000/users/verify/${token}" data-saferedirecturl="http://www.google.com/url?q=https://agenda-pw2.herokuapp.com/users/verify/${token}">Link</a></p>
+                <p><a target="_blank" href="${process.env.DEPLOY_URL}/users/verify/${token}" data-saferedirecturl="http://www.google.com/url?q=${process.env.DEPLOY_URL}/users/verify/${token}">Link</a></p>
             </div>
         `,
     }
