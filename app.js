@@ -49,7 +49,7 @@ var options = {
 var swaggerSpec = swaggerJSDoc(options);
 
 // cors setup
-app.use(cors(/*{origin: 'http://locahost:9000'}*/));
+app.use(cors({origin: 'http://192.168.1.12:1234'}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
