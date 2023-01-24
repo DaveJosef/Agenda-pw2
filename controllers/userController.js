@@ -81,7 +81,7 @@ exports.userLogin = async(req, res) => {
 
   if (!user.confirmed) {
     message = 'Conta não confirmada.';
-    return res.status(400).json({ message: message });
+    return res.status(401).json({ message: message });
   }
 
   const validPassword = await bcrypt.compare(req.body.password, user.password);
