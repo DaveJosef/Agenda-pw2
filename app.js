@@ -49,7 +49,7 @@ var options = {
 var swaggerSpec = swaggerJSDoc(options);
 
 // cors setup
-app.use(cors(/*{origin: 'http://locahost:9000'}*/));
+app.use(cors({origin: 'https://agenda-pw2-front.onrender.com'}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
