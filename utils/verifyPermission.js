@@ -1,4 +1,5 @@
 const mongoClient = require("../config/db.config");
+const ObjectId = require ("mongodb").ObjectId;
 
 const auth = async(req, res, next) => {
 
@@ -11,7 +12,7 @@ const auth = async(req, res, next) => {
     const User = database.collection("User");
 
     const users = [];
-    await User.find({ id: req.user.id }).forEach(user => users.push(user));
+    await User.find({ _id: ObjectId(req.user.id) }).forEach(user => users.push(user));
 
     authUser = users[0];
 
@@ -20,7 +21,7 @@ const auth = async(req, res, next) => {
     next();
 
   } catch(err) {
-    res.send({ message: err.message });
+    res.status(400).send({ message: err.message });
   }
 }
 
